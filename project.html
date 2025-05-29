@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Center - Contact & X-ray Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-container {
+            width: 40%;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .xray-container {
+            width: 60%;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        
+        .divider {
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        
+        .contact-info {
+            margin-left: 20px;
+        }
+        
+        .contact-info p {
+            margin: 10px 0;
+        }
+        
+        .contact-info strong {
+            display: inline-block;
+            width: 80px;
+        }
+        
+        .projection-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .projection-times {
+            margin-left: 20px;
+        }
+        
+        .projection-times p {
+            margin: 8px 0;
+            padding-left: 10px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .business-landing {
+            margin-top: 30px;
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+        /* X-ray Form Styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .results-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .scrollable-container {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .error-message {
+            color: red;
+            margin: 10px 0;
+        }
+
+        .patient-info {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .patient-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Contact Information Section -->
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <p>Unless you have to go on the contact inspection and investment</p>
+            
+            <div class="divider"></div>
+            
+            <h2>Find Us Here</h2>
+            <div class="contact-info">
+                <p><strong>Phone:</strong> 02-400-7000</p>
+                <p><strong>Email:</strong> www.contactus.com/products/etc</p>
+                <p><strong>Location:</strong> 02-800-0001, 00:40 (00) (2008)</p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="projection-section">
+                <h2>Projection</h2>
+                <h3>Contact Us</h3>
+                <p><strong>Projection Method & Healthcare Center</strong></p>
+                
+                <div class="projection-times">
+                    <p>01:30pm</p>
+                    <p>02:40 pm</p>
+                    <p>03:40 pm</p>
+                </div>
+            </div>
+            
+            <div class="business-landing">
+                <p>Business Landing Page</p>
+            </div>
+        </div>
+        
+        <!-- X-ray Upload Section -->
+        <div class="xray-container">
+            <h1>Chest Radiography Upload</h1>
+            
+            <form id="xrayForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="patient_name">Patient Name:</label>
+                    <input type="text" id="patient_name" name="patient_name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="patient_id">Patient ID:</label>
+                    <input type="text" id="patient_id" name="patient_id" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="doctor">Doctor Name:</label>
+                    <input type="text" id="doctor" name="doctor" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="xray_image">Upload Chest X-ray Image:</label>
+                    <input type="file" id="xray_image" name="xray_image" accept="image/*" required>
+                </div>
+                
+                <button type="submit">Submit & Predict</button>
+            </form>
+            
+            <div class="loading" id="loadingIndicator">
+                <p>Processing your X-ray... Please wait.</p>
+            </div>
+            
+            <div class="results-section">
+                <h2>Results</h2>
+                <div id="error-message" class="error-message"></div>
+                <div id="results-container">
+                    <p>No image uploaded yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('xrayForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading indicator
+            document.getElementById('loadingIndicator').style.display = 'block';
+            document.getElementById('error-message').textContent = '';
+            
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Network response was not ok');
+                }
+                
+                const data = await response.json();
+                
+                // Update the results container with the response data
+                document.getElementById('results-container').innerHTML = `
+                    <div class="patient-info">
+                        <p><strong>Patient:</strong> ${data.patient_name}</p>
+                        <p><strong>ID:</strong> ${data.patient_id}</p>
+                        <p><strong>Age:</strong> ${data.age}</p>
+                        <p><strong>Gender:</strong> ${data.gender}</p>
+                        <p><strong>Doctor:</strong> ${data.doctor}</p>
+                    </div>
+                    <p><strong>Diagnosis:</strong> ${data.predicted_class} (Confidence: ${data.confidence}%)</p>
+                    <div class="scrollable-container">
+                        <h3>Uploaded X-ray:</h3>
+                        <img src="${data.image_url}" alt="Uploaded X-ray">
+                        
+                        <h3>Prediction Confidence Graph:</h3>
+                        <img src="${data.chart_url}" alt="Prediction Graph">
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById('error-message').textContent = error.message;
+                document.getElementById('results-container').innerHTML = '<p>Error occurred during prediction.</p>';
+            } finally {
+                // Hide loading indicator
+                document.getElementById('loadingIndicator').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
